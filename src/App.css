@@ -1,38 +1,64 @@
-.App {
-  text-align: center;
+.componentStyles{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.compo1Styles{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+    padding: 2% 0% 2% 0%;
+    border-right: 2px solid black;
+    height: 80vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+.compo2Styles{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2% 0% 2% 0%;
+    row-gap: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.compo1Btn{
+    background-color: red;
+    color: white;
+    border-color: red;
+    border-radius: 10px;
+    padding: 1%;
 }
 
-.App-link {
-  color: #61dafb;
+.compo1Btn:hover{
+    cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.compo2StylesDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label{
+    margin-right: 10px;
+}
+
+
+.compo2Btn{
+    background-color: green;
+    color: white;
+    border-color: green;
+    border-radius: 10px;
+    padding: 1%;
+}
+
+
+.compo2Btn:hover{
+    cursor: pointer;
 }

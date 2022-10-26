@@ -1,0 +1,129 @@
+.loginPage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+    justify-content: center;
+    height: 70vh;
+}
+
+.loginPage--button-green{
+    background-color: green;
+}
+
+.button{
+    color: white;
+    padding: 1% 2% 1% 2%;
+    border-radius: 20px;
+}
+
+.button:hover{
+    cursor: pointer;
+}
+
+.loginPage h1{
+    margin: 0px;
+    color: red;
+}
+
+.loginPage input{
+    width: 200px;
+    height: 30px;
+}
+
+.HomePage{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 40px;
+}
+
+.HomePage .Header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 93%;
+    padding: 0% 3% 0% 3%;
+}
+
+.HomePage .Header button{
+    color: white;
+    background-color: red;
+    border-color: red;
+    border-radius: 20px;
+    padding: 1% 3% 1% 3%;
+}
+
+.HomePage .Header button:hover{
+    cursor: pointer;
+}
+
+.HomePage .inputBox{
+    display: flex;
+    flex-direction: row;
+    column-gap: 30px;
+    align-self: center;
+}
+
+.HomePage .inputBox button{
+    color: white;
+    background-color: green;
+    border-color: green;
+    border-radius: 20px;
+    padding: 1% 3% 1% 3%;
+}
+
+.HomePage .inputBox button:hover{
+    cursor: pointer;
+}
+
+
+.HomePage .table{
+    align-self: center;   
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+table{
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+
+th{
+    width: 200px;
+    text-align: center;
+    border: 2px solid black;
+    padding: 1%;
+}
+
+td{
+    width: 100px;
+    text-align: center;
+    border: 2px solid black;
+    padding: 1%;
+}
+
+.editButton{
+    background-color: blue;
+    color: white;
+    border-color: blue;
+    border-radius: 20px;
+}
+
+.editButton:hover{
+    cursor: pointer;
+}
+
+.deleteButton{
+    background-color: red;
+    color: white;
+    border-color: red;
+    border-radius: 20px;
+}
+
+.deleteButton:hover{
+    cursor: pointer;
+}
