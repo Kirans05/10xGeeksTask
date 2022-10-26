@@ -1,8 +1,6 @@
 // import { height, width } from "@mui/system";
 import * as d3 from "d3";
 import { useState, useEffect } from "react";
-import Stat from  "../States.geojson"
-// const India = require("../Sattes2.json")
 
 
 var markers = [
@@ -46,8 +44,8 @@ export const useMapTools = function () {
 
   // only fetch map data once and create a tooltip
   useEffect(() => {
-    d3.json("https://raw.githubusercontent.com/geohacker/india/master/district/india_district.geojson")
-    // d3.json("https://raw.githubusercontent.com/geohacker/india/master/state/india_state.geojson")
+    // d3.json("https://raw.githubusercontent.com/geohacker/india/master/district/india_district.geojson")
+    d3.json("https://raw.githubusercontent.com/geohacker/india/master/state/india_state.geojson")
       .then((data) => {
         setMapData((prevState) => {
           return { ...prevState, data: data, loading: false };
@@ -68,18 +66,18 @@ export const useMapTools = function () {
     .attr("class", "circles")
     .attr("style", "position: absolute; opacity: 1");
 
-    d3
-    .select("body")
-    .data([{long: 95.952244, lat: 27.941956, group: "A", size: 34}])
-    .enter()
-    .append("div")
-      .attr("cx", function(d){ return projection([d.long, d.lat])[0] })
-      .attr("cy", function(d){ return projection([d.long, d.lat])[1] })
-      .attr("r", function(d){ return size(d.size) })
-      .style("fill", function(d){ return color(d.group) })
-      .attr("stroke", function(d){ return color(d.group) })
-      .attr("stroke-width", 3)
-      .attr("fill-opacity", .4)
+    // d3
+    // .select("body")
+    // .data([{long: 95.952244, lat: 27.941956, group: "A", size: 34}])
+    // .enter()
+    // .append("div")
+    //   .attr("cx", function(d){ return projection([d.long, d.lat])[0] })
+    //   .attr("cy", function(d){ return projection([d.long, d.lat])[1] })
+    //   .attr("r", function(d){ return size(d.size) })
+    //   .style("fill", function(d){ return color(d.group) })
+    //   .attr("stroke", function(d){ return color(d.group) })
+    //   .attr("stroke-width", 3)
+    //   .attr("fill-opacity", .4)
 
 
   }, []);

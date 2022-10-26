@@ -9,3 +9,7 @@
   fill: rgb(255, 145, 0);
   fill-opacity: 0.5; 
 }
+
+.circleSvg{
+  opacity: 0.7;
+}

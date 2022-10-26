@@ -70,7 +70,14 @@ export default function HealthRegionList({covidData}) {
     const path = d3.geoPath().projection(setMapProjection(mapData.data));
     // for each geoJSON coordinate, compute and pass in the equivalent svg path
     const healthRegions = mapData.data.features.map((data) => {
+      // for just states not for districts
       const region_name = data.properties["NAME_1"];
+
+      // for districts present in india
+      // const region_name = data.properties["NAME_2"];
+      // const stateNames = data.properties["NAME_1"]
+
+
       return (
         <>
         <HealthRegion
@@ -78,6 +85,7 @@ export default function HealthRegionList({covidData}) {
           path={path(data)}
           tooltipData={region_name}
           // tooltipData={() => {return <p>text</p>}}
+          // stateName={stateNames}
           covidData={covidData}
           />
           {/* <svg className="">

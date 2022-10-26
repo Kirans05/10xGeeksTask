@@ -50,37 +50,41 @@ let indiaStates = [
 
 
 export default function HealthRegion(props) {
-  const { path, tooltipData, covidData } = props;
-  // const cordinates = path.split(",")
-  // //each path defines the shape of a region in the map
-  // let stateValue 
-  // let filterStates = indiaStates.filter(item => item[0] == tooltipData)
-  // let circleRadius = 2
-  // if(filterStates.length){
-  //   stateValue = filterStates[0][1]
-  //   if(stateValue in covidData){
-  //     let casesCount = covidData[stateValue].total.confirmed
-  //     if(casesCount < 20000){
-  //       circleRadius = 7
-  //     }else if(casesCount < 100000){
-  //       circleRadius = 9
-  //     }else if(casesCount < 1000000){
-  //       circleRadius = 11
-  //     }else if (casesCount < 10000000){
-  //       circleRadius = 15
-  //     }else{
-  //       circleRadius = 15
-  //     }
-  //   }
-  // }else{
-  //   stateValue = "KA"
-  // }
+  const { path, tooltipData, covidData, stateName } = props;
+
+  const cordinates = path.split(",")
+  //each path defines the shape of a region in the map
+  let stateValue 
+  let filterStates = indiaStates.filter(item => item[0] == tooltipData)
+  let circleRadius = 2
+  if(filterStates.length){
+    stateValue = filterStates[0][1]
+    if(stateValue in covidData){
+      let casesCount = covidData[stateValue].total.confirmed
+      if(casesCount < 20000){
+        circleRadius = 7
+      }else if(casesCount < 100000){
+        circleRadius = 9
+      }else if(casesCount < 1000000){
+        circleRadius = 11
+      }else if (casesCount < 10000000){
+        circleRadius = 15
+      }else{
+        circleRadius = 15
+      }
+    }
+  }else{
+    stateValue = "KA"
+  }
   return (
     <>
     <path
       className="path"
       d={path}
       onMouseOver={() => {
+        // handleMouseOver(tooltipData, stateName);
+
+        // for just state not for districts
         handleMouseOver(tooltipData);
       }}
       onMouseOut={handleMouseOut}
@@ -88,7 +92,7 @@ export default function HealthRegion(props) {
         handleMouseMove(event);
       }}
       />
-  {/* <circle cx={cordinates[0].substring(1,4)} cy={cordinates[1].substring(0,3)} r={circleRadius}  fill="red"/> */}
+  <circle cx={cordinates[0].substring(1,4)} cy={cordinates[1].substring(0,3)} r={circleRadius}  fill="red" className="circleSvg"/>
       </>
   );
 }

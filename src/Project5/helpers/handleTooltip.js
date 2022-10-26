@@ -1,10 +1,11 @@
 import * as d3 from "d3";
 
 // show tooltip when hovering over a region
-export const handleMouseOver = function (tooltipData) {
+export const handleMouseOver = function (tooltipData, stateName) {
   d3.select("#tooltip")
     .style("opacity", 1)
     .style("background-color", "burlywood")
+    // .text(tooltipData+" "+stateName);
     .text(tooltipData);
 };
 
