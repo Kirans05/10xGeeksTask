@@ -71,11 +71,11 @@ export default function HealthRegionList({covidData}) {
     // for each geoJSON coordinate, compute and pass in the equivalent svg path
     const healthRegions = mapData.data.features.map((data) => {
       // for just states not for districts
-      const region_name = data.properties["NAME_1"];
+      // const region_name = data.properties["NAME_1"];
 
       // for districts present in india
-      // const region_name = data.properties["NAME_2"];
-      // const stateNames = data.properties["NAME_1"]
+      const districtName = data.properties["NAME_2"];
+      const stateName = data.properties["NAME_1"]
 
 
       return (
@@ -83,10 +83,11 @@ export default function HealthRegionList({covidData}) {
         <HealthRegion
           key={data.properties.FID}
           path={path(data)}
-          tooltipData={region_name}
+          tooltipData={districtName}
           // tooltipData={() => {return <p>text</p>}}
           // stateName={stateNames}
           covidData={covidData}
+          stateName={stateName}
           />
           {/* <svg className="">
                <g><ReactBubbleChart data={bubbleData}  /></g>

@@ -44,8 +44,8 @@ export const useMapTools = function () {
 
   // only fetch map data once and create a tooltip
   useEffect(() => {
-    // d3.json("https://raw.githubusercontent.com/geohacker/india/master/district/india_district.geojson")
-    d3.json("https://raw.githubusercontent.com/geohacker/india/master/state/india_state.geojson")
+    d3.json("https://raw.githubusercontent.com/geohacker/india/master/district/india_district.geojson")
+    // d3.json("https://raw.githubusercontent.com/geohacker/india/master/state/india_state.geojson")
       .then((data) => {
         setMapData((prevState) => {
           return { ...prevState, data: data, loading: false };
@@ -64,7 +64,7 @@ export const useMapTools = function () {
     d3.select("body")
     .append("text")
     .attr("class", "circles")
-    .attr("style", "position: absolute; opacity: 1");
+    .attr("style", "position: absolute; opacity: 1; z-index:100");
 
     // d3
     // .select("body")

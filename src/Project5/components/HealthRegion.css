@@ -1,15 +1,19 @@
 .path {
   fill: rgb(132, 0, 255);
   stroke: cornsilk;
-  stroke-width: 1px;
+  stroke-width: 0px;
 }
 
 .path:hover {
   cursor: pointer;
-  fill: rgb(255, 145, 0);
-  fill-opacity: 0.5; 
+  /* fill: rgb(255, 145, 0); */
+  /* fill-opacity: 0.5;  */
 }
 
 .circleSvg{
   opacity: 0.7;
+}
+
+.circleSvg:hover{
+  cursor: pointer;
 }
