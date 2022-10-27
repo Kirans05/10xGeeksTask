@@ -2,7 +2,8 @@ import {
   handleMouseOver,
   handleMouseOut,
   handleMouseMove,
-  handleCircleMouseOver
+  handleCircleMouseOver,
+  mouseClick
 } from "../helpers/handleTooltip";
 import "./HealthRegion.css";
 import ReactBubbleChart from "react-d3-bubble";
@@ -51,11 +52,36 @@ let indiaStates = [
 
 
 export default function HealthRegion(props) {
-  const { path, tooltipData, covidData, stateName } = props;
+  const { path, tooltipData, covidData, stateName, coordinatesPoints, setCovidCount, setPlaceName } = props;
+//   console.log(coordinatesPoints)
+//   let lat = 0;
+//     let lng = 0;
+//   function findCenter(coordinatesPoints) {
+    
+    
+//     for(let i = 0; i < coordinatesPoints.length; ++i) {
+//         lat += coordinatesPoints[i][0][0][0];
+//         lng += coordinatesPoints[i][0][0][1];
+//         // lng += coordinatesPoints[i].lng;
+//     }
+
+//     lat /= coordinatesPoints.length;
+//     lng /= coordinatesPoints.length;
+
+//     return {lat: lat, lng: lng}
+// }
+
+// findCenter(coordinatesPoints)
+
+
 
   const cordinates = path.split(",")
-  //each path defines the shape of a region in the map
+  // // console.log(cordinates)
+  // //each path defines the shape of a region in the map
+
+  // // for state
   // let stateValue 
+  // let circleColor = "red"
   // let filterStates = indiaStates.filter(item => item[0] == tooltipData)
   // let circleRadius = 2
   // if(filterStates.length){
@@ -78,6 +104,9 @@ export default function HealthRegion(props) {
   //   stateValue = "KA"
   // }
 
+
+
+  // for distrcits
   let circleRadius = 7
   let circleColor = "#f7e1dc"
   let cases = 10000
@@ -115,7 +144,8 @@ export default function HealthRegion(props) {
     return
   }
 
-
+// console.log("lat",lat)
+// console.log("lng",lng)
 
   return (
     <>
@@ -133,9 +163,26 @@ export default function HealthRegion(props) {
         handleMouseMove(event);
       }}
       />
+  {/* <circle cx={lat} cy={lng} r={10}  fill={"red"} className="circleSvg"
+  // onMouseOver={() => {
+  //   handleCircleMouseOver(tooltipData, stateName, "cases")
+  //   // handleCircleMouseOver(tooltipData, stateName, cases)
+  // }}
+  /> */}
+  {/* <circle cx={cordinates[0].substring(1,4)} cy={cordinates[1].substring(0,3)} r={10}  fill={"red"} className="circleSvg"
+  // onMouseOver={() => {
+  //   handleCircleMouseOver(tooltipData, stateName, "cases")
+  //   // handleCircleMouseOver(tooltipData, stateName, cases)
+  // }}
+  /> */}
   <circle cx={cordinates[0].substring(1,4)} cy={cordinates[1].substring(0,3)} r={circleRadius}  fill={circleColor} className="circleSvg"
   onMouseOver={() => {
     handleCircleMouseOver(tooltipData, stateName, cases)
+  }}
+  onClick={() => {
+    // setPlaceName(`${tooltipData}-${stateName}`)
+    // setCovidCount(`${cases}`)
+    mouseClick(tooltipData,stateName,cases)
   }}
   />
       </>

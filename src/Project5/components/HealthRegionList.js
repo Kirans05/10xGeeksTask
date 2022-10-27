@@ -4,51 +4,9 @@ import { useMapTools } from "../hooks/useMapTools";
 import HealthRegion from "./HealthRegion";
 import "./HealthRegionList.css";
 import ReactBubbleChart from "react-d3-bubble";
+import { useState } from "react";
 
-const bubbleData = [
-  {
-    index: 0,
-    name: "A",
-    color: "#f48fb1",
-    radius: 56
-  },
-  // {
-  //   index: 1,
-  //   name: "B",
-  //   color: "#ffab91",
-  //   radius: 34
-  // },
-  // {
-  //   index: 2,
-  //   name: "C",
-  //   color: "#b87fe9",
-  //   radius: 32
-  // },
-  // {
-  //   index: 3,
-  //   name: "D",
-  //   color: "#64b5f6",
-  //   radius: 32
-  // },
-  // {
-  //   index: 4,
-  //   name: "E",
-  //   color: "#81c784",
-  //   radius: 18
-  // },
-  // {
-  //   index: 5,
-  //   name: "F",
-  //   color: "#f48fb1",
-  //   radius: 19
-  // },
-  // {
-  //   index: 6,
-  //   name: "G",
-  //   color: "#64b5f6",
-  //   radius: 22
-  // }
-];
+
 
 
 
@@ -56,6 +14,8 @@ const bubbleData = [
 export default function HealthRegionList({covidData}) {
   // step 1: load geoJSON and create tooltip
   const {mapData} = useMapTools();
+  const [placeName, setPlaceName] = useState("")
+  const [covidCount, setCovidCount] = useState("")
 
   // let valuesarr = []
   // for(let i in covidData){
@@ -70,6 +30,7 @@ export default function HealthRegionList({covidData}) {
     const path = d3.geoPath().projection(setMapProjection(mapData.data));
     // for each geoJSON coordinate, compute and pass in the equivalent svg path
     const healthRegions = mapData.data.features.map((data) => {
+      const coordinates = data.geometry.coordinates
       // for just states not for districts
       // const region_name = data.properties["NAME_1"];
 
@@ -88,6 +49,9 @@ export default function HealthRegionList({covidData}) {
           // stateName={stateNames}
           covidData={covidData}
           stateName={stateName}
+          coordinatesPoints={coordinates}
+          setPlaceName={setPlaceName}
+          setCovidCount={setCovidCount}
           />
           {/* <svg className="">
                <g><ReactBubbleChart data={bubbleData}  /></g>
@@ -102,6 +66,8 @@ export default function HealthRegionList({covidData}) {
         <svg className="map-canvas">
           <g>{healthRegions}</g>
         </svg>
+        <h1>{placeName}</h1>
+        <h1>{covidCount}</h1>
       </>
     );
   } else {

@@ -66,6 +66,11 @@ export const useMapTools = function () {
     .attr("class", "circles")
     .attr("style", "position: absolute; opacity: 1; z-index:100");
 
+    d3.select("body")
+      .append("div")
+      .attr("id", "text")
+      .attr("style", "position: absolute; opacity: 1");
+
     // d3
     // .select("body")
     // .data([{long: 95.952244, lat: 27.941956, group: "A", size: 34}])

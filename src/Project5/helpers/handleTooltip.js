@@ -5,8 +5,8 @@ export const handleMouseOver = function (tooltipData, stateName) {
   d3.select("#tooltip")
     .style("opacity", 1)
     .style("background-color", "burlywood")
-    .text(tooltipData+" "+stateName);
-    // .text(tooltipData);
+    // .text(tooltipData+" "+stateName);
+    .text(tooltipData);
 };
 
 // hide tooltip as mouse leaves region
@@ -26,5 +26,14 @@ export const handleCircleMouseOver = (tooltipData, stateName, cases) => {
   d3.select("#tooltip")
     .style("opacity", 1)
     .style("background-color", "burlywood")
+    .text(tooltipData+" "+stateName+" "+cases);
+}
+
+
+export const mouseClick = (tooltipData,stateName,cases) => {
+  d3.select("#text")
+    .style("opacity", 1)
+    .style("background-color", "white")
+    .style("font-size","30px")
     .text(tooltipData+" "+stateName+" "+cases);
 }
