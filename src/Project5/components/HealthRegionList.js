@@ -44,11 +44,13 @@ export default function HealthRegionList({covidData}) {
         <HealthRegion
           key={data.properties.FID}
           path={path(data)}
+          // tooltipData={region_name}
           tooltipData={districtName}
           // tooltipData={() => {return <p>text</p>}}
           // stateName={stateNames}
           covidData={covidData}
           stateName={stateName}
+          // stateName={stateName}
           coordinatesPoints={coordinates}
           setPlaceName={setPlaceName}
           setCovidCount={setCovidCount}
@@ -66,8 +68,6 @@ export default function HealthRegionList({covidData}) {
         <svg className="map-canvas">
           <g>{healthRegions}</g>
         </svg>
-        <h1>{placeName}</h1>
-        <h1>{covidCount}</h1>
       </>
     );
   } else {

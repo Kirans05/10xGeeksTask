@@ -6,8 +6,8 @@
 
 .path:hover {
   cursor: pointer;
-  /* fill: rgb(255, 145, 0); */
-  /* fill-opacity: 0.5;  */
+  /* fill: rgb(255, 145, 0); 
+   fill-opacity: 0.5;  */
 }
 
 .circleSvg{
