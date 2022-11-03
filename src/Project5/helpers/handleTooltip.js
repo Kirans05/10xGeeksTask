@@ -2,10 +2,10 @@ import * as d3 from "d3";
 
 // show tooltip when hovering over a region
 export const handleMouseOver = function (tooltipData, stateName) {
-  d3.select("#tooltip")
-    .style("opacity", 1)
-    .style("background-color", "burlywood")
-    .text(tooltipData+" "+stateName);
+  // d3.select("#tooltip")
+  //   .style("opacity", 1)
+  //   .style("background-color", "burlywood")
+  //   .text(tooltipData+" "+stateName);
     // .text(tooltipData);
 };
 
@@ -23,10 +23,15 @@ export const handleMouseMove = function (event) {
 
 
 export const handleCircleMouseOver = (tooltipData, stateName, cases) => {
-  d3.select("#tooltip")
-    .style("opacity", 1)
-    .style("background-color", "burlywood")
-    .text(tooltipData+" "+stateName+" "+cases);
+  // d3.select("#tooltip")
+  //   .style("opacity", 1)
+  //   .style("background-color", "burlywood")
+  //   .text(tooltipData+" "+stateName+" "+cases);
+  // d3.select("#text")
+  // .style("opacity", 1)
+  // .style("background-color", "white")
+  // .style("font-size","30px")
+  // .text(tooltipData+" "+" "+cases);
 }
 
 

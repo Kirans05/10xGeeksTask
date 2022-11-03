@@ -7,6 +7,8 @@ import {
 } from "../helpers/handleTooltip";
 import "./HealthRegion.css";
 import ReactBubbleChart from "react-d3-bubble";
+import { useContext } from "react";
+import { mainContext } from "../../App";
 
 
 let indiaStates = [
@@ -53,6 +55,7 @@ let indiaStates = [
 
 export default function HealthRegion(props) {
   const { path, tooltipData, covidData, stateName, coordinatesPoints, setCovidCount, setPlaceName } = props;
+  const {countType} = useContext(mainContext)
 
   // console.log(JSON.stringify(coordinatesPoints[0][0]))
 
@@ -134,13 +137,13 @@ const cordinates = path.split(",")
   let circleColor = "#f7e1dc"
   let cases = 10000
   let stateShortFormArr =  indiaStates.filter(item => item[0] == stateName)
-  console.log(stateName, stateShortFormArr)
+
   if(stateShortFormArr.length){
     let stateShortForm = stateShortFormArr[0][1]
     if(stateShortForm in covidData){
       let districts = covidData[stateShortForm].districts
       if(tooltipData in districts){
-         cases = districts[tooltipData].total.confirmed
+         cases = districts[tooltipData].total[countType]
         if(cases == undefined){
           circleRadius = 7
           circleColor = "#f7e1dc"
@@ -211,11 +214,11 @@ const cordinates = path.split(",")
   onMouseOver={() => {
     handleCircleMouseOver(tooltipData, stateName, cases)
   }}
-  onClick={() => {
-    // setPlaceName(`${tooltipData}-${stateName}`)
-    // setCovidCount(`${cases}`)
-    mouseClick(tooltipData,stateName,cases)
-  }}
+  // onClick={() => {
+  //   // setPlaceName(`${tooltipData}-${stateName}`)
+  //   // setCovidCount(`${cases}`)
+  //   mouseClick(tooltipData,stateName,cases)
+  // }}
   />
       </>
   );

@@ -4,24 +4,22 @@ import { useMapTools } from "../hooks/useMapTools";
 import HealthRegion from "./HealthRegion";
 import "./HealthRegionList.css";
 import ReactBubbleChart from "react-d3-bubble";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { Box, Typography } from "@mui/material";
+import DetailsCompo from "./DetailsCompo";
+import { mainContext } from "../../App";
 
 
 
 
 
 
-export default function HealthRegionList({covidData}) {
+export default function HealthRegionList() {
   // step 1: load geoJSON and create tooltip
-  const {mapData} = useMapTools();
-  const [placeName, setPlaceName] = useState("")
-  const [covidCount, setCovidCount] = useState("")
 
-  // let valuesarr = []
-  // for(let i in covidData){
-  //   valuesarr.push(covidData[i].total.confirmed)
-  // }
-  // console.log(valuesarr)
+  const {covidData, casesCount} = useContext(mainContext)
+  const {mapData, countType} = useMapTools();
+
 
   // render map only when map data is fully loaded
   if (!mapData.loading) {
@@ -29,46 +27,54 @@ export default function HealthRegionList({covidData}) {
     // compute a path function based on correct projections that we will use later
     const path = d3.geoPath().projection(setMapProjection(mapData.data));
     // for each geoJSON coordinate, compute and pass in the equivalent svg path
+
+
     const healthRegions = mapData.data.features.map((data) => {
       const coordinates = data.geometry.coordinates
-      // for just states not for districts
-      // const region_name = data.properties["NAME_1"];
-
-      // for districts present in india
       const districtName = data.properties["NAME_2"];
       const stateName = data.properties["NAME_1"]
-
 
       return (
         <>
         <HealthRegion
           key={data.properties.FID}
           path={path(data)}
-          // tooltipData={region_name}
           tooltipData={districtName}
-          // tooltipData={() => {return <p>text</p>}}
-          // stateName={stateNames}
           covidData={covidData}
           stateName={stateName}
-          // stateName={stateName}
           coordinatesPoints={coordinates}
-          setPlaceName={setPlaceName}
-          setCovidCount={setCovidCount}
           />
-          {/* <svg className="">
-               <g><ReactBubbleChart data={bubbleData}  /></g>
-           </svg> */}
           </>
       );
     });
 
+
     return (
-      <>
-        <h1>India Map</h1>
-        <svg className="map-canvas">
+      <Box sx={{display:"flex", flexDirection:"row", width:"100%", justifyContent:"space-between"}}>
+        <Box sx={{width:"45%", border:"2px solid blue"}}>
+          <DetailsCompo />
+        </Box>
+        <Box sx={{width:"45%", border:"2px solid red"}} id="mapBox">
+
+          {/* {
+            countType == "confirmed" ? <svg className="map-canvas">
+                <g>{healthRegionsConfirmed}</g>
+            </svg>
+            : countType == "deceased" ? <svg className="map-canvas">
+            <g>{healthRegionsDeceased}</g>
+        </svg>
+        : countType == "tested" ? <svg className="map-canvas">
+        <g>{healthRegionsTested}</g>
+    </svg>
+    : <svg className="map-canvas">
+    <g>{healthRegionsRecovered}</g>
+</svg>
+          } */}
+        <svg className="map-canvas" >
           <g>{healthRegions}</g>
         </svg>
-      </>
+        </Box>
+      </Box>
     );
   } else {
     return <h1>Loading...</h1>;

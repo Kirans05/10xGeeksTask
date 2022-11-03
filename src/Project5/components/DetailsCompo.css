@@ -1,0 +1,67 @@
+.infoMainBox .inf0Box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.infoMainBox .inf0Box .confirmedBox {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 20%;
+    align-items: center;
+    justify-content: center;
+}
+
+/* .infoMainBox .inf0Box .confirmedBox  :hover{
+    cursor:pointer;
+} */
+
+.infoMainBox .inf0Box .deceasedBox {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 20%;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* .infoMainBox .inf0Box .deceasedBox  :hover{
+    cursor:pointer;
+} */
+
+.infoMainBox .inf0Box .testedBox {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 20%;
+    align-items: center;
+    justify-content: center;
+}
+
+/* .infoMainBox .inf0Box .testedBox  :hover{
+    cursor:pointer;
+} */
+
+.infoMainBox .inf0Box .recoveredBox {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 20%;
+    align-items: center;
+    justify-content: center;
+}
+
+/* .infoMainBox .inf0Box .recoveredBox :hover{
+    cursor: pointer;
+} */
+
+.infoMainBox .dateInfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 80px;
+}
