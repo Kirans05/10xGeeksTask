@@ -1,7 +1,7 @@
 .infoMainBox .inf0Box {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .infoMainBox .inf0Box .confirmedBox {
@@ -10,7 +10,7 @@
     height: 100px;
     width: 20%;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 /* .infoMainBox .inf0Box .confirmedBox  :hover{
@@ -23,7 +23,7 @@
     height: 100px;
     width: 20%;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 
@@ -37,7 +37,7 @@
     height: 100px;
     width: 20%;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 /* .infoMainBox .inf0Box .testedBox  :hover{
@@ -50,7 +50,7 @@
     height: 100px;
     width: 20%;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 /* .infoMainBox .inf0Box .recoveredBox :hover{

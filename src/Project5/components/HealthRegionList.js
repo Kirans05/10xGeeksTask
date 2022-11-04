@@ -51,25 +51,10 @@ export default function HealthRegionList() {
 
     return (
       <Box sx={{display:"flex", flexDirection:"row", width:"100%", justifyContent:"space-between"}}>
-        <Box sx={{width:"45%", border:"2px solid blue"}}>
+        <Box sx={{width:"50%"}}>
           <DetailsCompo />
         </Box>
-        <Box sx={{width:"45%", border:"2px solid red"}} id="mapBox">
-
-          {/* {
-            countType == "confirmed" ? <svg className="map-canvas">
-                <g>{healthRegionsConfirmed}</g>
-            </svg>
-            : countType == "deceased" ? <svg className="map-canvas">
-            <g>{healthRegionsDeceased}</g>
-        </svg>
-        : countType == "tested" ? <svg className="map-canvas">
-        <g>{healthRegionsTested}</g>
-    </svg>
-    : <svg className="map-canvas">
-    <g>{healthRegionsRecovered}</g>
-</svg>
-          } */}
+        <Box sx={{width:"50%"}} id="mapBox">
         <svg className="map-canvas" >
           <g>{healthRegions}</g>
         </svg>

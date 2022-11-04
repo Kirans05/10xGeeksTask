@@ -24,6 +24,7 @@ const App = () => {
   })
 
   let [countType, setCountType] = useState("confirmed")
+  const [mapColor, setMapColor] = useState("#f5c4c1")
 
   // const navigate = useNavigate()
   // const [inputFeilds, setInputFeilds] = useState([])
@@ -107,13 +108,17 @@ const App = () => {
   },[])
 
 
-  const  selectType = (type) => {
+  const  selectType = (type, color) => {
     setCountType(type)
+    setMapColor(color)
   }
+
+
+  
 
   return (
     <div>
-      <mainContext.Provider value={{casesCount, covidData, countType, selectType}}>
+      <mainContext.Provider value={{casesCount, covidData, countType, selectType, mapColor}}>
       <Routes>
         <Route path='/' element={<LoginPage />}/>
         <Route path='/HomePage' element={<HomePage />}/>
