@@ -4,7 +4,7 @@ import { mainContext } from '../../App'
 import "./DetailsCompo.css"
 
 const DetailsCompo = () => {
-    const {casesCount, selectType, mapColor, countType} = useContext(mainContext)
+    const {casesCount, selectType, mapColor, countType, covidData} = useContext(mainContext)
     const date = new Date()
 
   return (
@@ -13,31 +13,41 @@ const DetailsCompo = () => {
             <Typography>{date.toDateString()}</Typography>
         </Box>
         <Box className='inf0Box'>
-            <Box className='confirmedBox' sx={{"&:hover":{cursor:"pointer", backgroundColor:"#f5c4c1"}, backgroundColor : countType == "confirmed" ? "#f5c4c1" :"white"}}
-            onClick={() => selectType("confirmed", "#f5c4c1")}
+            <Box className='confirmedBox' sx={{"&:hover":{cursor:"pointer", backgroundColor:"#ffe0e6"}, backgroundColor : countType == "confirmed" ? "#ffe0e6" :"white"}}
+            onClick={() => selectType("confirmed", "#ffe0e6")}
             >
-                <Typography>Confirmed</Typography>
-              <Typography>{casesCount.confirmed}</Typography>
+                <Typography className='category' sx={{fontSize:"15px"}}>Confirmed</Typography>
+              <Typography sx={{fontSize:"20px"}}>{casesCount.confirmed}</Typography>
             </Box>
-            <Box className='deceasedBox'  sx={{"&:hover":{cursor:"pointer", backgroundColor:"#dedcdc"}, backgroundColor : countType == "deceased" ? "#dedcdc" :"white"}}
-            onClick={() => selectType("deceased", "#dedcdc")}
+            <Box className='deceasedBox'  sx={{"&:hover":{cursor:"pointer", backgroundColor:"#edeeef"}, backgroundColor : countType == "deceased" ? "#edeeef" :"white"}}
+            onClick={() => selectType("deceased", "#edeeef")}
             >
-                <Typography>Deceased</Typography>
-              <Typography>{casesCount.deceased}</Typography>
+                <Typography className='category' sx={{fontSize:"15px"}}>Deceased</Typography>
+              <Typography sx={{fontSize:"20px"}}>{casesCount.deceased}</Typography>
             </Box>
-            <Box className='testedBox'  sx={{"&:hover":{cursor:"pointer", backgroundColor:"#a8bcf7"}, backgroundColor : countType == "tested" ? "#a8bcf7" :"white"}}
-            onClick={() => selectType("tested", "#a8bcf7")}
+            <Box className='testedBox'  sx={{"&:hover":{cursor:"pointer", backgroundColor:"#dfeeff"}, backgroundColor : countType == "tested" ? "#dfeeff" :"white"}}
+            onClick={() => selectType("tested", "#dfeeff")}
             >
-                <Typography>Tested</Typography>
-              <Typography>{casesCount.tested}</Typography>
+                <Typography className='category' sx={{fontSize:"15px"}}>Tested</Typography>
+              <Typography sx={{fontSize:"20px"}}>{casesCount.tested}</Typography>
             </Box>
-            <Box className='recoveredBox'  sx={{"&:hover":{cursor:"pointer", backgroundColor:"#b3f5b9"}, backgroundColor : countType == "recovered" ? "#b3f5b9" :"white"}}
-            onClick={() => selectType("recovered", "#b3f5b9")}
+            <Box className='recoveredBox'  sx={{"&:hover":{cursor:"pointer", backgroundColor:"#e4f4e8"}, backgroundColor : countType == "recovered" ? "#e4f4e8" :"white"}}
+            onClick={() => selectType("recovered", "#e4f4e8")}
             >
-                <Typography>Recovered</Typography>
-              <Typography>{casesCount.recovered}</Typography>
+                <Typography className='category' sx={{fontSize:"15px"}}>Recovered</Typography>
+              <Typography sx={{fontSize:"20px"}}>{casesCount.recovered}</Typography>
             </Box>
         </Box>
+        {/* {
+          Object.values(covidData).map((item, index) => {
+            console.log(item)
+              return (
+                <div>
+                  <h1>Covid Data</h1>
+                </div>
+              )
+          })
+        } */}
     </Box>
   )
 }

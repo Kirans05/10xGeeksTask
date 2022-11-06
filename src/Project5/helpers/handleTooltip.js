@@ -30,6 +30,7 @@ export const handleCircleMouseOver = (tooltipData, stateName, cases, mapColor) =
     .style("color","black")
     .style("top","20px")
     .style("left","52%")
+    .style("font-size","30px")
     .text(tooltipData+" "+" "+cases);
     // .text(tooltipData+" "+stateName+" "+cases);
 }
